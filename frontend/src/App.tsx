@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {MovieDetails} from "./pages/MovieDetails";
 import {MoviesPage} from "./pages/MoviesPage";
-import {DefaultTemplate} from "./template/DefaultTemplate";
+import {DefaultTemplate} from "./components/template/DefaultTemplate";
 
 function App() {
     return (

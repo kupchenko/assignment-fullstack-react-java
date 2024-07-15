@@ -5,6 +5,7 @@ import {CommentInput} from "../../components/CommentInput";
 import {Breadcrump} from "../../components/Breadcrump";
 import {MovieDescription} from "./MovieDescription";
 import {MovieComments} from "./MovieComments";
+import {callPost} from "../../api/ApiService.tsx";
 
 export const MovieDetails = () => {
   const {movieId} = useParams();
@@ -17,13 +18,7 @@ export const MovieDetails = () => {
     const body = {
       content
     }
-    await fetch(`http://localhost:8080/movies/${movieId}/comments`, {
-      headers: {
-        ['Content-Type']: 'application/json',
-      },
-      body: JSON.stringify(body),
-      method: 'POST',
-    });
+    await callPost(`/movies/${movieId}/comments`, body);
     await fetchData();
   }
 

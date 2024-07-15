@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Movie} from "../../types";
+import {callGet} from "../../api/ApiService.tsx";
 
 export const useMoviesPageData = (page: number = 0) => {
   const [loading, setLoading] = useState<boolean>(true)
@@ -9,7 +10,7 @@ export const useMoviesPageData = (page: number = 0) => {
   useEffect(() => {
     setLoading(true)
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8080/movies?page=${page}`)
+      const response = await callGet(`/movies?page=${page}`)
       const body = await response.json();
       setMovies((prevMovies) => {
         const uniqueObjects: any = {};

@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Comment, Movie} from "../../types";
+import {callGet} from "../../api/ApiService.tsx";
 
 export const useMovieData = (movieId: string | undefined) => {
   const [loading, setLoading] = useState<boolean>(true)
@@ -8,8 +9,8 @@ export const useMovieData = (movieId: string | undefined) => {
   const fetchData = async () => {
     setLoading(true)
     let [movieResponse, commentsResponse] = await Promise.all([
-      fetch(`http://localhost:8080/movies/${movieId}`),
-      fetch(`http://localhost:8080/movies/${movieId}/comments`)
+      callGet(`/movies/${movieId}`),
+      callGet(`/movies/${movieId}/comments`)
     ]);
     const movie = await movieResponse.json();
     const commentsBody = await commentsResponse.json();
