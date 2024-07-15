@@ -4,7 +4,8 @@ export const toHowLongAgo = (timeIso: string) => {
 
 function timeSince(date: number) {
 
-  var seconds = Math.floor((new Date() - date) / 1000);
+  const now = new Date();
+  const seconds = Math.floor((now.getTime() - date) / 1000);
 
   var interval = seconds / 31536000;
 

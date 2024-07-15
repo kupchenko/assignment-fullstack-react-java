@@ -15,7 +15,7 @@ export const CommentInput = ({onSubmitComment}: CommentInputProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 w-full pt-5">
       <TextArea placeholder="Enter you comment" value={text} rows={4} onChange={(e) => setText(e.target.value)}/>
       <Button className="ml-auto" onClick={submit}>Post comment</Button>
     </div>

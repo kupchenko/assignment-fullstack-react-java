@@ -8,7 +8,6 @@ export const useMoviesPageData = (page: number = 0) => {
 
   useEffect(() => {
     setLoading(true)
-    console.log('Loading...', page)
     const fetchData = async () => {
       const response = await fetch(`http://localhost:8080/movies?page=${page}`)
       const body = await response.json();
