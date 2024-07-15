@@ -34,7 +34,7 @@ export const InfiniteScrollList = ({items, totalItems, onLoadMore}: InfiniteScro
         hasMore={items.length < totalItems}
         loader={<Skeleton avatar paragraph={{rows: 1}} active/>}
         endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
-        height="calc(100vh - 300px)"
+        height="calc(100vh - 100px)"
       >
         <List
           dataSource={items}
